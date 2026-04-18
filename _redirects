@@ -1,0 +1,2 @@
+# Auto-redirect Spanish browsers to the Spanish homepage
+/    /index-es.html    302!    Language=es
