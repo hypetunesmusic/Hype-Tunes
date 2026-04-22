@@ -72,3 +72,32 @@ input:focus,select:focus,textarea:focus{border-color:var(--blue);box-shadow:0 0 
   100%{box-shadow:0 0 16px rgba(61,216,255,.4)}
 }
 .btn.pill:hover,.chip:hover{animation:pulseGlow 1.8s ease-in-out infinite}
+
+.top-nav {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  gap: 28px;
+  padding: 12px 28px;
+  border-radius: 999px;
+  background: rgba(10,10,10,0.55);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(61,216,255,0.35);
+  box-shadow: 0 0 22px rgba(61,216,255,0.25);
+}
+
+.nav-link {
+  color: #3dd8ff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: 0.2s ease;
+}
+
+.nav-link:hover {
+  color: #ff4dd8;
+  text-shadow: 0 0 12px rgba(255,77,216,0.55);
+}
