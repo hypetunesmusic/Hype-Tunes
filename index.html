@@ -11,26 +11,64 @@
 <meta name="theme-color" content="#3dd8ff">
 
 <link rel="stylesheet" href="css/global.css">
+
+<style>
+/* Fix hero spacing so video centers correctly */
+.hero-center {
+  padding-top: 120px; /* clears nav bar height */
+}
+
+/* New nav layout */
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 40px;
+}
+
+.nav-left a,
+.nav-center a,
+.nav-right a {
+  color: var(--blue);
+  font-weight: 800;
+  text-decoration: none;
+  margin: 0 20px;
+}
+
+.nav-center {
+  display: flex;
+  gap: 40px;
+}
+</style>
+
 </head>
 
 <body>
 
 <!-- NAVIGATION -->
 <nav class="top-nav">
-  <a href="index.html" class="nav-link">Home</a>
-  <a href="business-order.html" class="nav-link">Business Orders</a>
-  <a href="event-order.html" class="nav-link">Event Orders</a>
-  <a href="index-es.html" class="nav-link">ES</a>
+
+  <!-- LEFT -->
+  <div class="nav-left">
+    <a href="index.html" class="nav-link">Home</a>
+  </div>
+
+  <!-- CENTER -->
+  <div class="nav-center">
+    <a href="business-order.html" class="nav-link">Business Orders</a>
+    <a href="event-order.html" class="nav-link">Event Orders</a>
+  </div>
+
+  <!-- RIGHT -->
+  <div class="nav-right">
+    <a href="index-es.html" class="nav-link">Spanish</a>
+  </div>
+
 </nav>
 
 <!-- BACKGROUND -->
 <canvas id="energy"></canvas>
 <div class="overlay"></div>
-
-<!-- LANGUAGE SWITCH -->
-<div class="lang">
-  <a href="index-es.html">ES</a>
-</div>
 
 <!-- HERO -->
 <div class="container hero-center">
@@ -44,16 +82,16 @@
   <!-- SOCIAL LINKS -->
   <div class="links-row" style="margin-top: 24px;">
     <a class="chip" href="https://instagram.com/hype_tunes7" target="_blank" rel="noopener">Instagram</a>
-    <a class="chip" href="https://tiktok.com/@hype.tunes?_t=ZT-90RumKihpDq&_r=1" target="_blank" rel="noopener">TikTok</a>
+    <a class="chip" href="https://tiktok.com/@hype.tunes" target="_blank" rel="noopener">TikTok</a>
     <a class="chip" href="https://facebook.com/profile.php?id=61581887407459" target="_blank" rel="noopener">Facebook</a>
-    <a class="chip" href="https://spotify.com/artist/0pwbsdOg1y5AjU3fVvLQCz?si=dn-Y-EP5TEKs2at31db_Pg" target="_blank" rel="noopener">Spotify</a>
+    <a class="chip" href="https://open.spotify.com/artist/0pwbsdOg1y5AjU3fVvLQCz?si=dn-Y-EP5TEKs2at31db_Pg" target="_blank" rel="noopener">Spotify</a>
   </div>
 
 </div>
 
 <!-- FOOTER -->
 <footer>
-  © 2026 Hype Tunes — You Moment, Your Song<br>
+  © 2026 Hype Tunes — Your Moment, Your Song<br>
   <a href="mailto:7hypetunes@gmail.com">7hypetunes@gmail.com</a>
 </footer>
 
