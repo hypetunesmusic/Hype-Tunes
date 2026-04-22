@@ -406,3 +406,45 @@ footer a {
   flex-direction: column;
   align-items: center;
 }
+
+/* ============================================
+   FORM NEON UPGRADE — Matches Footer Glow
+   ============================================ */
+
+fieldset,
+legend,
+label,
+.hint {
+  color: var(--blue);
+  text-shadow:
+    0 0 6px rgba(61,216,255,0.55),
+    0 0 12px rgba(61,216,255,0.35),
+    0 0 20px rgba(255,77,216,0.25);
+}
+
+/* Stronger borders for neon look */
+input,
+select,
+textarea {
+  border: 1px solid rgba(61,216,255,0.65);
+  box-shadow: 0 0 12px rgba(61,216,255,0.25);
+}
+
+/* On focus, full neon pop */
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--blue);
+  box-shadow:
+    0 0 12px rgba(61,216,255,0.75),
+    0 0 24px rgba(255,77,216,0.35);
+}
+
+/* Fieldset border glow */
+fieldset {
+  border: 1px solid rgba(61,216,255,0.45);
+  box-shadow:
+    0 0 12px rgba(61,216,255,0.25),
+    0 0 24px rgba(255,77,216,0.15);
+}
+
