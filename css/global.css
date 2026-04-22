@@ -1,5 +1,5 @@
 /* =====================================================
-   HYPE TUNES — Global Theme v2.0
+   HYPE TUNES — Global Theme v2.5
    Premium Neon UI — Electric Blue + Neon Pink
    ===================================================== */
 
@@ -27,8 +27,9 @@ h1,h2,h3,legend{
   color:var(--blue);
   font-weight:800;
   text-shadow:
-    0 0 6px rgba(61,216,255,.8),
-    0 0 18px rgba(255,77,216,.4);
+    0 0 8px rgba(61,216,255,1),
+    0 0 18px rgba(61,216,255,.85),
+    0 0 36px rgba(255,77,216,.45);
 }
 
 p,label,span,a{
@@ -71,52 +72,66 @@ a:hover{
    PANELS + CARDS
    ===================================================== */
 fieldset,.card{
-  background:var(--panel);
-  border:1px solid rgba(61,216,255,.15);
+  background:rgba(0,0,0,.45);
+  border:1px solid rgba(61,216,255,.45);
   border-radius:16px;
   padding:18px;
-  box-shadow:0 0 20px rgba(61,216,255,.08);
+  box-shadow:
+    0 0 18px rgba(61,216,255,.45),
+    0 0 36px rgba(255,77,216,.25);
 }
 
 /* =====================================================
-   FORM INPUTS — Base
+   FORM INPUTS — Neon
    ===================================================== */
-input,select,textarea{
+legend,
+label,
+.hint {
+  color: var(--blue);
+  font-weight: 700;
+  text-shadow:
+    0 0 8px rgba(61,216,255,1),
+    0 0 18px rgba(61,216,255,0.85),
+    0 0 36px rgba(255,77,216,0.45);
+}
+
+input,
+select,
+textarea {
   width:100%;
   padding:12px 14px;
   border-radius:10px;
-  border:1px solid var(--blue-soft);
-  background:#0b0b0b;
+  border:1px solid rgba(61,216,255,0.9);
+  background:rgba(0,0,0,0.55);
   color:var(--blue);
   font-size:1rem;
   outline:none;
   transition:border .25s ease,box-shadow .25s ease;
+  box-shadow:
+    0 0 12px rgba(61,216,255,0.45),
+    inset 0 0 8px rgba(61,216,255,0.35);
 }
 
-input:focus,select:focus,textarea:focus{
-  border-color:var(--blue);
-  box-shadow:0 0 10px rgba(61,216,255,.6);
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--pink);
+  box-shadow:
+    0 0 16px rgba(255,77,216,0.85),
+    0 0 32px rgba(61,216,255,0.55),
+    inset 0 0 12px rgba(255,77,216,0.45);
 }
 
-.hint{
-  font-size:.85rem;
-  color:var(--blue-soft);
+textarea{
+  min-height:130px;
+  resize:vertical;
 }
 
-.terms{
-  color:var(--blue-soft);
-  font-size:.9rem;
+label.checkbox{
   display:flex;
-  gap:8px;
+  gap:12px;
   align-items:flex-start;
-}
-
-.wrap{
-  min-height:100svh;
-  display:grid;
-  place-items:center;
-  padding:24px 16px;
-  position:relative;
+  margin-top:10px;
 }
 
 /* =====================================================
@@ -166,17 +181,6 @@ input:focus,select:focus,textarea:focus{
   color:#000;
   border-color:var(--pink);
   box-shadow:0 0 28px rgba(255,77,216,.55);
-}
-
-@keyframes pulseGlow{
-  0%{box-shadow:0 0 16px rgba(61,216,255,.4)}
-  50%{box-shadow:0 0 28px rgba(255,77,216,.65),0 0 56px rgba(255,77,216,.3)}
-  100%{box-shadow:0 0 16px rgba(61,216,255,.4)}
-}
-
-.btn.pill:hover,
-.chip:hover{
-  animation:pulseGlow 1.8s ease-in-out infinite;
 }
 
 /* =====================================================
@@ -286,84 +290,6 @@ input:focus,select:focus,textarea:focus{
 }
 
 /* =====================================================
-   HERO — Center Video
-   ===================================================== */
-
-.hero-center{
-  padding-top:140px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:flex-start;
-}
-
-.video-wrap{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  width:100%;
-  max-width:600px;
-  margin:0 auto;
-  position:relative;
-  z-index:10;
-}
-
-video{
-  width:100%;
-  height:auto;
-  border-radius:12px;
-  pointer-events:auto;
-}
-
-.unmute{
-  position:absolute;
-  bottom:12px;
-  right:12px;
-  background:rgba(0,0,0,.6);
-  padding:8px 14px;
-  border-radius:999px;
-  font-weight:700;
-  color:var(--blue);
-  cursor:pointer;
-  z-index:20;
-  pointer-events:auto;
-}
-
-/* =====================================================
-   RESPONSIVE — Mobile Nav Layout
-   ===================================================== */
-@media (max-width:480px){
-
-  .desktop-links {
-    display: none;
-  }
-
-  .order-dropdown {
-    display: block;
-  }
-
-  .nav-left,
-  .nav-center,
-  .nav-right {
-    flex: 1;
-    justify-content: center;
-  }
-
-  .nav-left {
-    justify-content: flex-start;
-  }
-
-  .nav-right {
-    justify-content: flex-end;
-    padding-right: 12px;
-  }
-
-  .nav-link{
-    font-size:.9rem;
-  }
-}
-
-/* =====================================================
    FOOTER — Centered + Neon Glow
    ===================================================== */
 
@@ -379,22 +305,22 @@ footer {
   position: relative;
   z-index: 10;
   text-shadow:
-    0 0 8px rgba(61,216,255,0.7),
-    0 0 16px rgba(61,216,255,0.5),
-    0 0 32px rgba(255,77,216,0.35);
+    0 0 8px rgba(61,216,255,1),
+    0 0 16px rgba(61,216,255,0.85),
+    0 0 36px rgba(255,77,216,0.45);
 }
 
 footer a {
   color: var(--blue);
   font-weight: 700;
   text-shadow:
-    0 0 8px rgba(61,216,255,0.7),
-    0 0 16px rgba(61,216,255,0.5),
-    0 0 32px rgba(255,77,216,0.35);
+    0 0 8px rgba(61,216,255,1),
+    0 0 16px rgba(61,216,255,0.85),
+    0 0 36px rgba(255,77,216,0.45);
 }
 
 /* =====================================================
-   CONTAINER FIX — Ensures Centered Layout
+   CONTAINER FIX
    ===================================================== */
 
 .container {
@@ -405,47 +331,4 @@ footer a {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-/* =====================================================
-   FORM NEON UPGRADE — Strong + Visible Glow
-   ===================================================== */
-
-legend,
-label,
-.hint {
-  color: var(--blue);
-  font-weight: 700;
-  text-shadow:
-    0 0 8px rgba(61,216,255,0.9),
-    0 0 16px rgba(61,216,255,0.6),
-    0 0 28px rgba(255,77,216,0.35);
-}
-
-input,
-select,
-textarea {
-  border: 1px solid rgba(61,216,255,0.85);
-  background: rgba(0,0,0,0.65);
-  box-shadow:
-    0 0 10px rgba(61,216,255,0.35),
-    inset 0 0 6px rgba(61,216,255,0.25);
-}
-
-input:focus,
-select:focus,
-textarea:focus {
-  border-color: var(--pink);
-  box-shadow:
-    0 0 14px rgba(255,77,216,0.75),
-    0 0 28px rgba(61,216,255,0.45),
-    inset 0 0 10px rgba(255,77,216,0.35);
-}
-
-fieldset {
-  border: 1px solid rgba(61,216,255,0.55);
-  background: rgba(0,0,0,0.55);
-  box-shadow:
-    0 0 16px rgba(61,216,255,0.35),
-    0 0 32px rgba(255,77,216,0.25);
 }
