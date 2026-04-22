@@ -53,7 +53,7 @@ a:hover{
   inset:0;
   z-index:0;
   filter:brightness(1.05) contrast(1.05);
-  pointer-events:none; /* FIX: lightning no longer blocks clicks */
+  pointer-events:none;
 }
 
 .overlay{
@@ -64,7 +64,7 @@ a:hover{
     rgba(0,0,0,.15) 0%,
     rgba(0,0,0,.65) 55%,
     rgba(0,0,0,.9) 100%);
-  pointer-events:none; /* FIX */
+  pointer-events:none;
 }
 
 /* =====================================================
@@ -157,8 +157,8 @@ input:focus,select:focus,textarea:focus{
   box-shadow:0 0 14px rgba(61,216,255,.25);
   transition:all .25s ease;
   position:relative;
-  z-index:10; /* FIX: clickable */
-  pointer-events:auto; /* FIX */
+  z-index:10;
+  pointer-events:auto;
 }
 
 .chip:hover{
@@ -168,7 +168,6 @@ input:focus,select:focus,textarea:focus{
   box-shadow:0 0 28px rgba(255,77,216,.55);
 }
 
-/* Pulse glow animation */
 @keyframes pulseGlow{
   0%{box-shadow:0 0 16px rgba(61,216,255,.4)}
   50%{box-shadow:0 0 28px rgba(255,77,216,.65),0 0 56px rgba(255,77,216,.3)}
@@ -181,7 +180,7 @@ input:focus,select:focus,textarea:focus{
 }
 
 /* =====================================================
-   NAVIGATION — 3‑Section Premium Neon Header (FINAL FIX)
+   NAVIGATION — 3‑Section Premium Neon Header
    ===================================================== */
 
 .top-nav{
@@ -200,27 +199,23 @@ input:focus,select:focus,textarea:focus{
   z-index:9999;
 }
 
-/* NEW: force equal spacing */
 .nav-left,
 .nav-center,
 .nav-right{
-  flex:1; /* each takes 1/3 of the bar */
+  flex:1;
   display:flex;
   align-items:center;
 }
 
-/* center group stays centered */
 .nav-center{
   justify-content:center;
   gap:40px;
 }
 
-.nav-right {
-  justify-content: flex-end;
-  padding-right: 24px; /* increased from 12px */
-  min-width: 120px;    /* guarantees Español fits fully */
-}
-
+.nav-right{
+  justify-content:flex-end;
+  padding-right:32px;
+  min-width:140px;
 }
 
 .nav-link{
@@ -228,8 +223,9 @@ input:focus,select:focus,textarea:focus{
   font-weight:800;
   text-decoration:none;
   font-size:1rem;
-  letter-spacing:.3px;
+  letter-spacing:.2px;
   margin:0 12px;
+  white-space:nowrap;
   transition:.2s ease;
 }
 
@@ -243,7 +239,7 @@ input:focus,select:focus,textarea:focus{
    ===================================================== */
 
 .hero-center{
-  padding-top:140px; /* FIX: centers under nav */
+  padding-top:140px;
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -258,14 +254,14 @@ input:focus,select:focus,textarea:focus{
   max-width:600px;
   margin:0 auto;
   position:relative;
-  z-index:10; /* FIX: above lightning */
+  z-index:10;
 }
 
 video{
   width:100%;
   height:auto;
   border-radius:12px;
-  pointer-events:auto; /* FIX: unmute works */
+  pointer-events:auto;
 }
 
 .unmute{
@@ -279,7 +275,7 @@ video{
   color:var(--blue);
   cursor:pointer;
   z-index:20;
-  pointer-events:auto; /* FIX */
+  pointer-events:auto;
 }
 
 /* =====================================================
@@ -304,49 +300,23 @@ video{
   .nav-link{
     font-size:.9rem;
   }
+}
 
-   /* ============================
-   FOOTER CENTERING FIX
-   ============================ */
+/* =====================================================
+   FOOTER — Centered + Neon Glow
+   ===================================================== */
 
 footer {
   width: 100%;
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 32px 0;
-  margin-top: 48px;
-  position: relative;
-  z-index: 10;
-}
-   /* Fix container so footer centers properly */
-.container {
-  width: 100%;
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* centers everything inside */
-}
-   /* FINAL FOOTER CENTER FIX */
-footer {
-  width: 100%;
   display: flex !important;
+  flex-direction: column;
   justify-content: center !important;
   align-items: center !important;
-  flex-direction: column;
-  text-align: center !important;
-  margin: 60px auto 0 auto;
   padding: 32px 0;
+  margin: 60px auto 0 auto;
   position: relative;
   z-index: 10;
-}
-
-   /* Neon glow for footer */
-footer {
   text-shadow:
     0 0 8px rgba(61,216,255,0.7),
     0 0 16px rgba(61,216,255,0.5),
@@ -362,4 +332,16 @@ footer a {
     0 0 32px rgba(255,77,216,0.35);
 }
 
+/* =====================================================
+   CONTAINER FIX — Ensures Centered Layout
+   ===================================================== */
+
+.container {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 auto !important;
+  padding: 0 !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
