@@ -244,24 +244,38 @@ input:focus,select:focus,textarea:focus{
     font-size:.9rem;
   }
   
-   .hero-center {
+  /* ============================
+   FIXES FOR VIDEO + NAV + CLICKS
+   ============================ */
+
+/* Lightning should not block clicks */
+#energy,
+.overlay {
+  pointer-events: none;
+}
+
+/* Center video properly */
+.hero-center {
   padding-top: 140px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-   #energy,
-.overlay {
-  pointer-events: none;
+/* Social chips clickable */
+.links-row {
+  position: relative;
+  z-index: 10;
 }
 
-   .nav-right {
+/* Nav spacing fix */
+.top-nav {
+  padding: 18px 24px;
+}
+
+.nav-right {
   padding-right: 20px;
 }
 
-   .top-nav {
-  padding: 18px 24px;
-}
 
 }
