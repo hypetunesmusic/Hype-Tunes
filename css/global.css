@@ -256,4 +256,12 @@ input:focus,select:focus,textarea:focus{
   pointer-events: none;
 }
 
+   .nav-right {
+  padding-right: 20px;
+}
+
+   .top-nav {
+  padding: 18px 24px;
+}
+
 }
