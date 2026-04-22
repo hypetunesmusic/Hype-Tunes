@@ -215,10 +215,12 @@ input:focus,select:focus,textarea:focus{
   gap:40px;
 }
 
-/* right group stays right-aligned */
-.nav-right{
-  justify-content:flex-end;
-  padding-right:12px;
+.nav-right {
+  justify-content: flex-end;
+  padding-right: 24px; /* increased from 12px */
+  min-width: 120px;    /* guarantees Español fits fully */
+}
+
 }
 
 .nav-link{
@@ -226,7 +228,7 @@ input:focus,select:focus,textarea:focus{
   font-weight:800;
   text-decoration:none;
   font-size:1rem;
-  letter-spacing:.5px;
+  letter-spacing:.3px;
   margin:0 12px;
   transition:.2s ease;
 }
