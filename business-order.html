@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <title>Quote for Business | Hype Tunes</title>
-  <meta name="description" content="Request a quote for a custom song for birthdays, weddings, parties, and special events.">
+  <meta name="description" content="Request a quote for a custom business anthem.">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -28,44 +28,6 @@
       margin: 32px 0;
     }
 
-    fieldset {
-      background: rgba(0,0,0,.35);
-      border: 1px solid rgba(61,216,255,.25);
-      border-radius: 14px;
-      padding: 20px;
-      margin: 24px 0;
-      box-shadow: 0 0 20px rgba(61,216,255,.1);
-    }
-
-    legend {
-      font-weight: 800;
-      color: var(--blue);
-      text-shadow: 0 0 12px rgba(61,216,255,.4);
-      padding: 0 6px;
-    }
-
-    label {
-      display: block;
-      margin: 8px 0 6px;
-      font-weight: 600;
-      color: var(--blue);
-    }
-
-    input, select, textarea {
-      width: 100%;
-      padding: 12px;
-      border-radius: 10px;
-      border: 1px solid var(--blue-soft);
-      background: #0c0c0c;
-      color: var(--blue);
-      font-size: 1rem;
-    }
-
-    textarea {
-      min-height: 130px;
-      resize: vertical;
-    }
-
     .row {
       display: grid;
       gap: 16px;
@@ -75,18 +37,6 @@
       .row.two {
         grid-template-columns: 1fr 1fr;
       }
-    }
-
-    label.checkbox {
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
-      margin-top: 10px;
-      color: var(--blue);
-    }
-
-    label.checkbox input[type=checkbox] {
-      margin-top: 4px;
     }
   </style>
 </head>
@@ -110,14 +60,14 @@
 
       <!-- DESKTOP LINKS -->
       <div class="desktop-links">
-        <a href="business-order.html" class="nav-link">Business Orders</a>
+        <a href="event-order.html" class="nav-link">Event Orders</a>
       </div>
 
       <!-- MOBILE DROPDOWN -->
       <div class="order-dropdown">
         <button class="order-btn nav-link">Order ▾</button>
         <div class="order-menu">
-          <a href="business-order.html">Business Orders</a>
+          <a href="event-order.html">Event Orders</a>
         </div>
       </div>
 
@@ -125,7 +75,7 @@
 
     <!-- RIGHT -->
     <div class="nav-right">
-      <a href="event-order-es.html" class="nav-link">ES</a>
+      <a href="business-order-es.html" class="nav-link">ES</a>
     </div>
 
   </nav>
@@ -134,7 +84,7 @@
   <div class="page-top">
 
     <h1 style="text-align:center;">Quote for Business</h1>
-    <p class="hint" style="text-align:center; color:var(--blue-soft);">
+    <p class="hint" style="text-align:center;">
       Fill out the form below to request your custom business song quote.
     </p>
 
@@ -148,21 +98,21 @@
 
     <!-- FORM -->
     <form name="order-business" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thanks.html" enctype="multipart/form-data">
-      <input type="hidden" name="form-name" value="order-event">
+      <input type="hidden" name="form-name" value="order-business">
       <div style="display:none;"><label>Don’t fill this out: <input name="bot-field"></label></div>
 
       <fieldset>
-        <legend>Event Info</legend>
+        <legend>Business Info</legend>
 
         <div class="row two">
           <div>
-            <label for="eventType">Business Type</label>
-            <input id="eventType" name="Business Type" placeholder="Gym, Salon, Influencer, etc." required>
+            <label for="businessType">Business Type</label>
+            <input id="businessType" name="Business Type" placeholder="Gym, Salon, Influencer, etc." required>
           </div>
 
           <div>
-            <label for="contactEvent">Best contact for follow-up</label>
-            <input id="contactEvent" name="Contact (Email or Phone)" required>
+            <label for="contactBiz">Best contact for follow-up</label>
+            <input id="contactBiz" name="Contact (Email or Phone)" required>
           </div>
         </div>
 
@@ -178,7 +128,7 @@
           </div>
 
           <div>
-            <label for="slogan">Business Slogan / details <span class="hint">(optional)</span></label>
+            <label for="slogan">Business Slogan / Details <span class="hint">(optional)</span></label>
             <input id="slogan" name="Business Slogan">
           </div>
         </div>
@@ -195,7 +145,7 @@
           <input type="checkbox" name="Streaming distribution" value="Yes">
           Publish to all major platforms (Spotify, Apple Music, etc.) — no extra charge.
         </label>
-        <p class="hint" style="color:var(--blue-soft);">
+        <p class="hint">
           We can upload on your behalf for convenience; this is optional and does not affect your rights.
         </p>
       </fieldset>
