@@ -310,13 +310,16 @@ video{
    ============================ */
 
 footer {
-  text-align: center;
   width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding: 32px 0;
   margin-top: 48px;
-  opacity: .8;
   position: relative;
-  z-index: 10; /* ensures it's above lightning */
+  z-index: 10;
 }
 
 footer a {
