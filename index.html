@@ -10,161 +10,7 @@
 <link rel="apple-touch-icon" href="images/apple-touch-icon.png" sizes="180x180">
 <meta name="theme-color" content="#3dd8ff">
 
-<style>
-/* ------------------------------
-   GLOBAL RESET + BASE
---------------------------------*/
-* { box-sizing: border-box; }
-html, body {
-  margin: 0;
-  background: #000;
-  color: #fff;
-  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto;
-  line-height: 1.55;
-}
-
-/* ------------------------------
-   BACKGROUND LIGHTNING
---------------------------------*/
-#energy {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  filter: brightness(1.05) contrast(1.05);
-}
-.overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 1;
-  background: radial-gradient(ellipse at center,
-    rgba(0,0,0,.15) 0%,
-    rgba(0,0,0,.65) 55%,
-    rgba(0,0,0,.9) 100%);
-}
-
-/* ------------------------------
-   TOP NAVIGATION
---------------------------------*/
-.top-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 18px 40px;
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  background: rgba(0,0,0,0.75);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(61,216,255,0.4);
-  box-shadow: 0 4px 20px rgba(61,216,255,0.25);
-  z-index: 9999;
-}
-.nav-link {
-  color: #3dd8ff;
-  font-weight: 800;
-  text-decoration: none;
-  font-size: 1rem;
-  letter-spacing: .5px;
-  transition: .2s ease;
-}
-.nav-link:hover {
-  color: #ff4dd8;
-  text-shadow: 0 0 12px rgba(255,77,216,0.55);
-}
-
-/* ------------------------------
-   LANGUAGE SWITCH
---------------------------------*/
-.lang {
-  position: fixed;
-  top: 16px;
-  right: 16px;
-  z-index: 9999;
-}
-.lang a {
-  padding: 8px 14px;
-  border-radius: 999px;
-  border: 1px solid rgba(61,216,255,.5);
-  color: #3dd8ff;
-  text-decoration: none;
-  font-weight: 700;
-}
-
-/* ------------------------------
-   LAYOUT
---------------------------------*/
-.container {
-  position: relative;
-  z-index: 2;
-  width: min(1100px, 94vw);
-  margin: auto;
-  padding: 48px 0;
-}
-
-.hero-center {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 32px;
-  text-align: center;
-}
-
-/* ------------------------------
-   VIDEO WRAPPER
---------------------------------*/
-.video-wrap {
-  position: relative;
-  width: min(900px, 95%);
-  margin: auto;
-  border: 1px solid rgba(61,216,255,.25);
-  border-radius: 18px;
-  overflow: hidden;
-  box-shadow: 0 0 32px rgba(61,216,255,.22);
-}
-video {
-  display: block;
-  width: 100%;
-  height: auto;
-  background: #000;
-}
-.unmute {
-  position: absolute;
-  bottom: 14px;
-  right: 14px;
-  background: rgba(0,0,0,.55);
-  border: 1px solid rgba(61,216,255,.5);
-  color: #3dd8ff;
-  padding: 10px 16px;
-  border-radius: 999px;
-  font-weight: 800;
-  cursor: pointer;
-  text-shadow: 0 0 8px rgba(61,216,255,.6);
-  box-shadow: 0 0 16px rgba(61,216,255,.25);
-}
-
-/* ------------------------------
-   FOOTER
---------------------------------*/
-footer {
-  margin-top: 48px;
-  padding: 32px 0;
-  text-align: center;
-  opacity: .7;
-  color: #3dd8ff;
-  font-size: .9rem;
-}
-footer a {
-  color: #3dd8ff;
-  text-decoration: none;
-  font-weight: 700;
-}
-footer a:hover {
-  color: #ff4dd8;
-  text-shadow: 0 0 10px rgba(255,77,216,.6);
-}
-</style>
+<link rel="stylesheet" href="css/global.css">
 </head>
 
 <body>
@@ -189,9 +35,18 @@ footer a:hover {
 <!-- HERO -->
 <div class="container hero-center">
 
+  <!-- VIDEO -->
   <div class="video-wrap">
     <video src="media/hype-intro.mp4" autoplay muted playsinline loop></video>
     <div class="unmute" onclick="toggleMute()">Tap to Unmute</div>
+  </div>
+
+  <!-- SOCIAL LINKS -->
+  <div class="links-row" style="margin-top: 24px;">
+    <a class="chip" href="https://instagram.com" target="_blank">Instagram</a>
+    <a class="chip" href="https://tiktok.com" target="_blank">TikTok</a>
+    <a class="chip" href="https://facebook.com" target="_blank">Facebook</a>
+    <a class="chip" href="https://spotify.com" target="_blank">Spotify</a>
   </div>
 
 </div>
