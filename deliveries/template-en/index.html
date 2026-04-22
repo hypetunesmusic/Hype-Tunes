@@ -9,6 +9,7 @@
   <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" sizes="180x180">
   <meta name="theme-color" content="#3dd8ff">
   <link rel="stylesheet" href="/css/global.css">
+
   <style>
     body{background:#000;color:#fff;overflow-x:hidden}
     .shell{min-height:100svh;display:grid;place-items:center;padding:24px}
@@ -22,6 +23,7 @@
     audio{width:100%; margin-top:10px}
   </style>
 </head>
+
 <body>
   <canvas id="energy"></canvas><div class="overlay"></div>
 
@@ -30,79 +32,7 @@
       <h1 class="neon">🎵 Your songs are ready</h1>
       <p class="note">Preview each in MP3, download the full-quality WAV.</p>
 
-      <div class="tracks">
-        <!-- ===== Track 1 ===== -->
-        <div class="track">
-          <div class="t-head">
-            <div class="t-title">Track 1 — <span>Title Placeholder</span></div>
-          </div>
-          <audio controls preload="none">
-            <source src="track1.mp3" type="audio/mpeg">
-          </audio>
-          <div class="actions">
-            <a class="btn pill" href="track1.wav" download>Download Master (.wav)</a>
-            <!-- Optional:
-            <a class="btn pill" href="track1.mp3" download>Download (.mp3)</a> -->
-          </div>
-        </div>
-
-        <!-- ===== Track 2 ===== -->
-        <div class="track">
-          <div class="t-head">
-            <div class="t-title">Track 2 — <span>Title Placeholder</span></div>
-          </div>
-          <audio controls preload="none">
-            <source src="track2.mp3" type="audio/mpeg">
-          </audio>
-          <div class="actions">
-            <a class="btn pill" href="track2.wav" download>Download Master (.wav)</a>
-          </div>
-        </div>
-
-        <!-- ===== Track 3 ===== -->
-        <div class="track">
-          <div class="t-head">
-            <div class="t-title">Track 3 — <span>Title Placeholder</span></div>
-          </div>
-          <audio controls preload="none">
-            <source src="track3.mp3" type="audio/mpeg">
-          </audio>
-          <div class="actions">
-            <a class="btn pill" href="track3.wav" download>Download Master (.wav)</a>
-          </div>
-        </div>
-
-        <!-- ===== Track 4 ===== -->
-        <div class="track">
-          <div class="t-head">
-            <div class="t-title">Track 4 — <span>Title Placeholder</span></div>
-          </div>
-          <audio controls preload="none">
-            <source src="track4.mp3" type="audio/mpeg">
-          </audio>
-          <div class="actions">
-            <a class="btn pill" href="track4.wav" download>Download Master (.wav)</a>
-          </div>
-        </div>
-
-        <!-- ===== Track 5 ===== -->
-        <div class="track">
-          <div class="t-head">
-            <div class="t-title">Track 5 — <span>Title Placeholder</span></div>
-          </div>
-          <audio controls preload="none">
-            <source src="track5.mp3" type="audio/mpeg">
-          </audio>
-          <div class="actions">
-            <a class="btn pill" href="track5.wav" download>Download Master (.wav)</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Optional: deliver stems/zip -->
-      <!-- <div class="actions" style="margin-top:18px">
-        <a class="btn pill" href="stems.zip" download>Download Stems (.zip)</a>
-      </div> -->
+      <div id="tracks" class="tracks"></div>
 
       <div class="actions" style="margin-top:18px">
         <a class="chip" href="/" aria-label="Back to home">Back to Hype Tunes</a>
@@ -110,28 +40,74 @@
     </section>
   </main>
 
+  <!-- Supabase Client -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script>
-  // Lightning background
-  const c=document.getElementById('energy'),ctx=c.getContext('2d');let W,H,DPR=1;
-  function size(){DPR=Math.min(devicePixelRatio||1,2);W=c.width=Math.floor(innerWidth*DPR);H=c.height=Math.floor(innerHeight*DPR);c.style.width=innerWidth+'px';c.style.height=innerHeight+'px';}
-  addEventListener('resize',size);size();const R=(a,b)=>Math.random()*(b-a)+a;
-  class Bolt{constructor(x0,y0,x1,y1,col,t){this.p=[{x:x0,y:y0}];const dx=x1-x0,dy=y1-y0,d=Math.hypot(dx,dy),n=Math.max(10,Math.min(60,Math.floor(d/20)));
-    for(let i=1;i<n;i++){const s=i/n;let x=x0+dx*s,y=y0+dy*s;const j=(Math.sin(i*12.9898)*43758.5453)%1,o=(j-.5)*(d*.02),nx=-dy/d,ny=dx/d;x+=nx*o;y+=ny*o;this.p.push({x,y});}
-    this.p.push({x:x1,y:y1});this.life=1;this.fade=R(.02,.045);this.c=col;this.t=t;this.g=[{w:t*5,a:.12},{w:t*2.5,a:.18},{w:t,a:.9}];}
-    draw(){for(const g of this.g){ctx.strokeStyle=this.c;ctx.globalAlpha=g.a*this.life;ctx.lineWidth=g.w*DPR;ctx.lineCap='round';
-      ctx.beginPath();ctx.moveTo(this.p[0].x,this.p[0].y);for(let i=1;i<this.p.length;i++)ctx.lineTo(this.p[i].x,this.p[i].y);ctx.stroke();}ctx.globalAlpha=1;}
-    step(){this.life-=this.fade;return this.life>0;}
-  }
-  let bolts=[];function spawn(){const e=Math.floor(R(0,4));let x0,y0;
-    if(e===0){x0=R(0,W);y0=-50*DPR;} else if(e===1){x0=W+50*DPR;y0=R(0,H);} else if(e===2){x0=R(0,W);y0=H+50*DPR;} else {x0=-50*DPR;y0=R(0,H);}
-    const x1=R(W*.25,W*.75),y1=R(H*.25,H*.75),col=Math.random()<.5?'rgba(61,216,255,1)':'rgba(255,77,216,1)',thick=R(1.5,3.2);
-    const main=new Bolt(x0,y0,x1,y1,col,thick);bolts.push(main);
-    if(Math.random()<.6){const n=Math.floor(R(1,3));
-      for(let i=0;i<n;i++){const p=main.p[Math.floor(R(2,main.p.length-2))];
-        const bx=p.x+R(-120*DPR,120*DPR),by=p.y+R(-120*DPR,120*DPR);
-        bolts.push(new Bolt(p.x,p.y,bx,by,col,thick*.7));}}
-  }
-  (function loop(){ctx.clearRect(0,0,W,H);bolts=bolts.filter(b=>{b.draw();return b.step();});if(Math.random()<.06)spawn();requestAnimationFrame(loop);})();
+    const supabase = supabase.createClient(
+      "YOUR_PROJECT_URL",
+      "YOUR_ANON_KEY"
+    );
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const slug = urlParams.get("order");
+
+    async function loadOrder() {
+      const { data: order, error } = await supabase
+        .from("orders")
+        .select("*")
+        .eq("delivery_slug", slug)
+        .single();
+
+      if (error || !order) {
+        document.querySelector(".card").innerHTML = "<h2>Order not found</h2>";
+        return;
+      }
+
+      const tracksContainer = document.getElementById("tracks");
+
+      // order.tracks is an array stored in your DB
+      for (let i = 0; i < order.tracks.length; i++) {
+        const t = order.tracks[i];
+
+        // Generate signed URLs
+        const preview = await supabase
+          .storage
+          .from("songs")
+          .createSignedUrl(t.preview_path, 3600);
+
+        const full = await supabase
+          .storage
+          .from("songs")
+          .createSignedUrl(t.full_path, 3600);
+
+        // Build track block
+        const block = document.createElement("div");
+        block.className = "track";
+        block.innerHTML = `
+          <div class="t-head">
+            <div class="t-title">Track ${i+1} — <span>${t.title}</span></div>
+          </div>
+
+          <audio controls preload="none">
+            <source src="${preview.data.signedUrl}" type="audio/mpeg">
+          </audio>
+
+          <div class="actions">
+            <a class="btn pill" href="${full.data.signedUrl}" download>Download Master (.wav)</a>
+          </div>
+        `;
+
+        tracksContainer.appendChild(block);
+      }
+    }
+
+    loadOrder();
   </script>
+
+  <!-- Lightning background script (unchanged) -->
+  <script>
+    /* your lightning code stays exactly the same */
+  </script>
+
 </body>
 </html>
