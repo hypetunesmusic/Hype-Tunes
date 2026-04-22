@@ -1,0 +1,5 @@
+# Protect this delivery folder and its files
+/deliveries/{folder-name}/*
+  Basic-Auth: {username}:{password}
+  X-Robots-Tag: noindex, nofollow
+  Cache-Control: no-store
