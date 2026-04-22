@@ -53,6 +53,7 @@ a:hover{
   inset:0;
   z-index:0;
   filter:brightness(1.05) contrast(1.05);
+  pointer-events:none; /* FIX: lightning no longer blocks clicks */
 }
 
 .overlay{
@@ -63,6 +64,7 @@ a:hover{
     rgba(0,0,0,.15) 0%,
     rgba(0,0,0,.65) 55%,
     rgba(0,0,0,.9) 100%);
+  pointer-events:none; /* FIX */
 }
 
 /* =====================================================
@@ -154,6 +156,9 @@ input:focus,select:focus,textarea:focus{
   border:1px solid rgba(61,216,255,.6);
   box-shadow:0 0 14px rgba(61,216,255,.25);
   transition:all .25s ease;
+  position:relative;
+  z-index:10; /* FIX: clickable */
+  pointer-events:auto; /* FIX */
 }
 
 .chip:hover{
@@ -176,7 +181,7 @@ input:focus,select:focus,textarea:focus{
 }
 
 /* =====================================================
-   NAVIGATION — 3‑Section Premium Neon Header
+   NAVIGATION — 3‑Section Premium Neon Header (FINAL)
    ===================================================== */
 
 .top-nav{
@@ -184,9 +189,9 @@ input:focus,select:focus,textarea:focus{
   top:0;
   left:0;
   width:100%;
-  padding:18px 40px;
+  padding:16px 24px;
   display:flex;
-  justify-content:space-between; /* LEFT | CENTER | RIGHT */
+  justify-content:space-between;
   align-items:center;
   background:rgba(0,0,0,0.75);
   backdrop-filter:blur(12px);
@@ -206,6 +211,10 @@ input:focus,select:focus,textarea:focus{
   gap:40px;
 }
 
+.nav-right{
+  padding-right:12px; /* FIX: Spanish no longer trails off */
+}
+
 .nav-link{
   color:var(--blue);
   font-weight:800;
@@ -219,6 +228,50 @@ input:focus,select:focus,textarea:focus{
 .nav-link:hover{
   color:var(--pink);
   text-shadow:0 0 12px rgba(255,77,216,0.55);
+}
+
+/* =====================================================
+   HERO — Center Video + Fix Clicks
+   ===================================================== */
+
+.hero-center{
+  padding-top:140px; /* FIX: centers under nav */
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-start;
+}
+
+.video-wrap{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  width:100%;
+  max-width:600px;
+  margin:0 auto;
+  position:relative;
+  z-index:10; /* FIX: above lightning */
+}
+
+video{
+  width:100%;
+  height:auto;
+  border-radius:12px;
+  pointer-events:auto; /* FIX: unmute works */
+}
+
+.unmute{
+  position:absolute;
+  bottom:12px;
+  right:12px;
+  background:rgba(0,0,0,.6);
+  padding:8px 14px;
+  border-radius:999px;
+  font-weight:700;
+  color:var(--blue);
+  cursor:pointer;
+  z-index:20;
+  pointer-events:auto; /* FIX */
 }
 
 /* =====================================================
@@ -243,39 +296,4 @@ input:focus,select:focus,textarea:focus{
   .nav-link{
     font-size:.9rem;
   }
-  
-  /* ============================
-   FIXES FOR VIDEO + NAV + CLICKS
-   ============================ */
-
-/* Lightning should not block clicks */
-#energy,
-.overlay {
-  pointer-events: none;
-}
-
-/* Center video properly */
-.hero-center {
-  padding-top: 140px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* Social chips clickable */
-.links-row {
-  position: relative;
-  z-index: 10;
-}
-
-/* Nav spacing fix */
-.top-nav {
-  padding: 18px 24px;
-}
-
-.nav-right {
-  padding-right: 20px;
-}
-
-
 }
