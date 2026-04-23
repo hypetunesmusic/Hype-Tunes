@@ -99,16 +99,18 @@ NAVIGATION
   gap:28px;
 }
 
-.desktop-links{
-  display:flex;
-  align-items:center;
-  gap:28px;
-}
-
+/* separator */
 .desktop-links .nav-link:not(:last-child)::after{
   content:"|";
   margin-left:18px;
   color:rgba(61,216,255,0.5);
+}
+
+/* DESKTOP SEPARATORS */
+.nav-center .nav-link:not(:last-child)::after{
+content:"|";
+margin-left:20px;
+color:rgba(61,216,255,0.5);
 }
 
 /* MOBILE DROPDOWN */
