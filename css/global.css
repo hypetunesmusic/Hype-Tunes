@@ -68,11 +68,11 @@ a:hover{
 }
 
 /* =====================================================
-   FORM + PANELS — Solid Black, Neon Glow
+   FORM + PANELS — Matte Black + Neon Glow
    ===================================================== */
 
 fieldset{
-  background:#000; /* solid black */
+  background:#000; /* matte black */
   border:1px solid rgba(61,216,255,0.65);
   border-radius:16px;
   padding:18px;
@@ -103,7 +103,7 @@ textarea{
   padding:12px 14px;
   border-radius:10px;
   border:1px solid rgba(61,216,255,0.9);
-  background:#000; /* solid black */
+  background:#000; /* matte black */
   color:var(--blue);
   font-size:1rem;
   outline:none;
@@ -264,7 +264,7 @@ label.checkbox{
   top:28px;
   left:50%;
   transform:translateX(-50%);
-  background:rgba(0,0,0,0.85);
+  background:#000;
   border:1px solid rgba(61,216,255,0.4);
   border-radius:10px;
   padding:10px 0;
